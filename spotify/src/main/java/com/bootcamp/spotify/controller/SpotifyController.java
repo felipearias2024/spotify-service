@@ -26,11 +26,11 @@ import java.util.List;
 public class SpotifyController {
 
     @Autowired
-    private IArtistService artistService;
+    private ArtistService artistService;
     @Autowired
-    private IAlbumService albumService;
+    private AlbumService albumService;
     @Autowired
-    private ITrackService trackService;
+    private TrackService trackService;
 
     @PostMapping(path = "/album")
     public Album createAlbum(@RequestBody AlbumRequest request){
@@ -83,7 +83,6 @@ public class SpotifyController {
     }
 
 
-
     @PostMapping(path = "/track")
     public Track createTrack(@RequestBody TrackRequest request){return trackService.createTrack(request);}
 
@@ -106,6 +105,13 @@ public class SpotifyController {
     public Track deleteTrack(@PathVariable("id") Long id) {
         return trackService.deleteTrack(id);
     }
+
+    @GetMapping(path = "/play/track/{id}")
+    public Track play(@PathVariable("id") Long id) {
+        return trackService.increaseReproducton(id);
+    }
+
+
 
 
 }

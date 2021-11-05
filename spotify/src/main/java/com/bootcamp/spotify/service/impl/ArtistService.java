@@ -5,6 +5,8 @@ import com.bootcamp.spotify.domain.mappers.AlbumMapper;
 import com.bootcamp.spotify.domain.mappers.ArtistMapper;
 import com.bootcamp.spotify.domain.model.Album;
 import com.bootcamp.spotify.domain.model.Artist;
+import com.bootcamp.spotify.exeptions.SpotifyExistExeption;
+import com.bootcamp.spotify.exeptions.SpotifyNotExistExeption;
 import com.bootcamp.spotify.service.IArtistService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -54,7 +53,7 @@ public class ArtistService implements IArtistService {
             artistMap.put(request.getIdArtist(), artistMapper.apply(request));
         } else {
             log.error("El artista ya existe");
-            //throw new ArtistExistException("El artista ya existe");
+            throw new SpotifyExistExeption("El artista ya existe");
         }
         return artist;
     }
@@ -68,7 +67,7 @@ public class ArtistService implements IArtistService {
             artistMap.put(request.getIdArtist(), artist);
         } else {
             log.error("El artista NO existe");
-            //throw new ArtistNotExistException("El artista NO existe");
+            throw new SpotifyNotExistExeption("El artista NO existe");
         }
         return artist;
     }
