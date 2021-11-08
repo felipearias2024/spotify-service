@@ -111,7 +111,10 @@ public class SpotifyController {
         return trackService.increaseReproducton(id);
     }
 
-
+    @GetMapping(path = "/")
+    public String prueba(){
+        return "1";
+    }
 
 
 }
