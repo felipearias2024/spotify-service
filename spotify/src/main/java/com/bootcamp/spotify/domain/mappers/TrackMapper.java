@@ -9,6 +9,6 @@ import java.util.function.Function;
 public class TrackMapper implements Function<TrackRequest, Track>{
     @Override
     public Track apply(TrackRequest trackRequest) {
-        return Track.builder().id(trackRequest.getId()).name(trackRequest.getName()).idArtist(trackRequest.getIdArtist()).idAlbum(trackRequest.getIdAlbum()).reproduction(trackRequest.getReproduction()).duration(trackRequest.getDuration()).build();
+        return Track.builder().idTrack(trackRequest.getIdTrack()).name(trackRequest.getName()).album(trackRequest.getAlbum()).reproduction(trackRequest.getReproduction()).duration(trackRequest.getDuration()).build();
     }
 }

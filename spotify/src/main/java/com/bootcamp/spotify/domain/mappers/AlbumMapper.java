@@ -10,6 +10,6 @@ import java.util.function.Function;
 public class AlbumMapper implements Function<AlbumRequest, Album>{
     @Override
     public Album apply(AlbumRequest albumRequest) {
-        return Album.builder().idAlbum(albumRequest.getIdAlbum()).idArtist(albumRequest.getIdArtist()).name(albumRequest.getName()).build();
+        return Album.builder().idAlbum(albumRequest.getIdAlbum()).artist(albumRequest.getArtist()).name(albumRequest.getName()).build();
     }
 }

@@ -8,8 +8,6 @@ import javax.validation.constraints.NotNull;
 @Data
 @Builder
 public class ArtistRequest {
-
-    @NotNull(message = "El campo id no puede ser null.")
     private long idArtist;
     @NotNull(message = "El campo name no puede ser null.")
     private String name;
