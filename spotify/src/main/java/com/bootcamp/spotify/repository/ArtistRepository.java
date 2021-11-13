@@ -1,5 +1,4 @@
 package com.bootcamp.spotify.repository;
-
 import com.bootcamp.spotify.domain.model.Artist;
 import com.bootcamp.spotify.domain.model.Track;
 import org.springframework.data.jpa.repository.Query;
