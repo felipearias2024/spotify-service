@@ -8,4 +8,10 @@ import java.util.List;
 
 @Repository
 public interface AlbumRepository extends CrudRepository<Album, Long> {
+    Album findByIdAlbum (Long idAlbum);
+
+    Album deleteByIdAlbum (Long idAlbum);
+
+    List<Album> findAll();
+
 }
